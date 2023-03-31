@@ -32,7 +32,9 @@ const Login = () => {
     e.preventDefault();
     if (values.username === "foo" && values.password === "bar") {
       dispatch(login());
-    } else alert("Invalid username or password");
+    } else if (values.username.length > 0 && values.username.length > 0) {
+      alert("Invalid username or password");
+    }
     setValues(() => {
       return {
         username: "",
@@ -42,27 +44,33 @@ const Login = () => {
   };
 
   return (
-    <form id="loginForm" className="login-form" onSubmit={submitHandler}>
-      <input
-        className="input"
-        type="text"
-        name="username"
-        value={values.username}
-        placeholder="Username"
-        onChange={handleChange}
-      />
-      <input
-        className="input"
-        type="text"
-        name="password"
-        value={values.password}
-        placeholder="Password"
-        onChange={handleChange}
-      />
-      <button className="button" form="loginForm" type="submit">
-        Submit
-      </button>
-    </form>
+    <div className="login-form-wrapper">
+      <form id="loginForm" className="login-form" onSubmit={submitHandler}>
+        <label for="username">Username</label>
+        <input
+          className="input"
+          id="username"
+          type="text"
+          name="username"
+          value={values.username}
+          placeholder="Username"
+          onChange={handleChange}
+        />
+        <label for="pasword">Password</label>
+        <input
+          className="input"
+          id="password"
+          type="text"
+          name="password"
+          value={values.password}
+          placeholder="Password"
+          onChange={handleChange}
+        />
+        <button className="button" form="loginForm" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 

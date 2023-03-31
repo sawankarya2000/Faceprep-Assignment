@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import Card from "./Card";
-import Navbar from "./Navbar";
 
 const List = () => {
   const [list, setList] = useState([]);
@@ -10,7 +9,7 @@ const List = () => {
 
   const loadData = () => {
     fetch(
-      `https://randomuser.me/api/?page=${page}&results=10&seed=abc&inc=name,picture`
+      `https://randomuser.me/api/?page=${page}&results=15&seed=abc&inc=name,picture`
     )
       .then((res) => res.json())
       .then((data) => {
